@@ -1,4 +1,4 @@
-package main.java.com.chess.board.main;
+package main.java.com.chess.main;
 
 public class Main {
     public static void main(String[] args) {
