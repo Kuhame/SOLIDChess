@@ -1,23 +1,26 @@
 package main.java.com.chess.board;
 
+import main.java.com.chess.pieces.Piece;
+
 public class GameBoard {
-    private int boardId;
-    private Cell[][] board;
+    private Piece[][] board;
 
-    public GameBoard(int boardId, Cell[][] board) {
-        this.boardId = boardId;
-        this.board = board;
+    public GameBoard() {
+        board = new Piece[8][8];
     }
 
-    public int getBoardId() {
-        return boardId;
+    public void addPiece(Piece piece) {
+        board[piece.getX()][piece.getY()] = piece;
     }
 
-    public Cell[][] getBoard() {
-        return board;
+    public void movePiece(Piece piece, int x, int y) {
+        board[piece.getX()][piece.getY()] = null;
+        piece.setX(x);
+        piece.setY(y);
+        board[x][y] = piece;
     }
 
-    public void setBoard(Cell[][] board) {
-        this.board = board;
+    public Piece getPiece(int x, int y) {
+        return board[x][y];
     }
 }
