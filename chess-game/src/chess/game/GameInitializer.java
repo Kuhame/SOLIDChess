@@ -1,5 +1,6 @@
 package chess.game;
 
+import chess.board.IBoardSetup;
 import chess.board.BoardSetup;
 import chess.board.IBoard;
 import chess.core.PlayerColor;
@@ -8,18 +9,16 @@ import chess.player.Player;
 
 import java.util.Scanner;
 
-public class GameInitializer {
-    private IBoard board;
-    private BoardSetup boardSetup;
+public class GameInitializer implements IGameInitializer{
+    private IBoardSetup boardSetup;
     private Scanner scanner;
 
     public GameInitializer(IBoard board) {
-        this.board = board;
         this.boardSetup = new BoardSetup(board);
         this.scanner = new Scanner(System.in);
     }
 
-    public IPlayer[] initialize() {
+    public IPlayer[] initializeGame() {
         System.out.println("Enter name for Player 1:");
         String name1 = scanner.nextLine();
         System.out.println("Enter name for Player 2:");
@@ -38,7 +37,7 @@ public class GameInitializer {
             player2 = new Player(name2, PlayerColor.WHITE);
         }
 
-        boardSetup.setup();
+        boardSetup.setupBoard();
         return new IPlayer[]{player1, player2};
     }
 }

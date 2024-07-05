@@ -5,7 +5,7 @@ import chess.core.IPosition;
 import chess.core.Position;
 import java.util.Scanner;
 
-public class PlayerInputHandler {
+public class PlayerInputHandler implements IPlayerInputHandler{
     private Scanner scanner;
     private IBoard board;
 

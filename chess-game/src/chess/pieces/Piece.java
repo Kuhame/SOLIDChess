@@ -20,4 +20,9 @@ public abstract class Piece implements IPiece {
 
     @Override
     public abstract char getSymbol();
+
+    @Override
+    public boolean isKing() {
+        return false;
+    }
 }

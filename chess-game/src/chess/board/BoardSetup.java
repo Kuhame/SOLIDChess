@@ -3,14 +3,14 @@ package chess.board;
 import chess.pieces.*;
 import chess.core.Position;
 
-public class BoardSetup {
+public class BoardSetup implements IBoardSetup{
     private IBoard board;
 
     public BoardSetup(IBoard board) {
         this.board = board;
     }
 
-    public void setup() {
+    public void setupBoard() {
         // Initialize board with pieces
         // Pawns
         for (int i = 0; i < 8; i++) {

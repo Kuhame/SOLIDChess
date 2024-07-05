@@ -7,4 +7,5 @@ public interface IPiece {
     boolean isWhite();
     boolean isValidMove(IPosition from, IPosition to, Map<IPosition, IPiece> board);
     char getSymbol();
+    boolean isKing();
 }
