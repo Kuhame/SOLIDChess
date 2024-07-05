@@ -11,8 +11,8 @@ public class ChessGame implements IChessGame {
     private IBoard board;
     private IBoardPrinter boardPrinter;
     private IGameInitializer gameInitializer;
-    private PlayerInputHandler playerInputHandler;
-    private CheckmateValidator checkmateValidator;
+    private IPlayerInputHandler playerInputHandler;
+    private ICheckmateValidator checkmateValidator;
     private IPlayer player1;
     private IPlayer player2;
 
@@ -34,11 +34,6 @@ public class ChessGame implements IChessGame {
         boolean whiteTurn = true;
         while (true) {
             boardPrinter.printBoard();
-            if (whiteTurn) {
-                System.out.println(player1.getColor() == PlayerColor.WHITE ? player1.getName() + "'s move (White):" : player2.getName() + "'s move (White):");
-            } else {
-                System.out.println(player1.getColor() == PlayerColor.BLACK ? player1.getName() + "'s move (Black):" : player2.getName() + "'s move (Black):");
-            }
 
             if (checkmateValidator.isCheckmate(whiteTurn ? PlayerColor.WHITE : PlayerColor.BLACK)) {
                 System.out.println("Checkmate! " + (whiteTurn ? "Black" : "White") + " wins!");
@@ -49,6 +44,12 @@ public class ChessGame implements IChessGame {
                 whiteTurn = !whiteTurn;
             } else {
                 System.out.println("Invalid move.");
+            }
+
+            if (whiteTurn) {
+                System.out.println(player1.getColor() == PlayerColor.WHITE ? player1.getName() + "'s move (White):" : player2.getName() + "'s move (White):");
+            } else {
+                System.out.println(player1.getColor() == PlayerColor.BLACK ? player1.getName() + "'s move (Black):" : player2.getName() + "'s move (Black):");
             }
         }
     }

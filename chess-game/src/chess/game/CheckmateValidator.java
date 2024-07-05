@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class CheckmateValidator {
+public class CheckmateValidator implements ICheckmateValidator{
     private IBoard board;
 
     public CheckmateValidator(IBoard board) {
