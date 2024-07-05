@@ -3,7 +3,7 @@ package chess.board;
 import chess.pieces.IPiece;
 import chess.core.Position;
 
-public class BoardPrinter {
+public class BoardPrinter implements IBoardPrinter{
     private IBoard board;
 
     public BoardPrinter(IBoard board) {

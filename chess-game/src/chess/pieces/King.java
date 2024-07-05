@@ -1,7 +1,6 @@
 package chess.pieces;
 
 import chess.core.IPosition;
-import chess.core.Position;
 import java.util.Map;
 
 public class King extends Piece {
@@ -19,5 +18,20 @@ public class King extends Piece {
     @Override
     public char getSymbol() {
         return isWhite() ? 'K' : 'k';
+    }
+
+    public boolean isInCheck(IPosition kingPosition, Map<IPosition, IPiece> board) {
+        for (Map.Entry<IPosition, IPiece> entry : board.entrySet()) {
+            IPiece piece = entry.getValue();
+            if (piece.isWhite() != this.isWhite() && piece.isValidMove(entry.getKey(), kingPosition, board)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public boolean isKing() {
+        return true;
     }
 }
